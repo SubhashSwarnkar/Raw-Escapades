@@ -62,7 +62,7 @@ const Itinerary = () => {
                 <Typography sx={{ mb: 2 }}>{item.content}</Typography>
                 <Box sx={{ display: 'flex', gap: 2 }}>
                   {item.images.map((image, imgIndex) => (
-                    <img key={imgIndex} src={image} alt={`Day ${index + 1} image ${imgIndex + 1}`} style={{ width: '30%' }} />
+                    <img key={imgIndex} src={image} alt={`Day ${index + 1} imagee ${imgIndex + 1}`} style={{ width: '30%' }} />
                   ))}
                 </Box>
               </AccordionDetails>
