@@ -1,47 +1,96 @@
-import React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import SearchIcon from '@mui/icons-material/Search';
-import Divider from '@mui/material/Divider';
-import Box from '@mui/material/Box';
-
+import React, { useState } from 'react';
+import { AppBar, Toolbar, Typography, Button, IconButton, Divider, Box, Drawer, List, ListItem, ListItemText, useMediaQuery, useTheme } from '@mui/material';
+import { Search as SearchIcon, Menu as MenuIcon } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
-  return (<div className='container'>
-    <AppBar position="static"  sx={{ backgroundColor: 'transparent', boxShadow: 'none' }}>
-      <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          <img src='./logo/Group.svg' alt='Logo'/>
-        </Typography>
-        <Box sx={{ display: 'flex', alignItems: 'center', gap:'15px' }}>
-          <Button color="inherit">Travel</Button>
-          <Button color="inherit">Adventure</Button>
-          <Button color="inherit">Destination</Button>
-          <Button color="inherit">Customize</Button>
-          <Button color="inherit">Events</Button>
-          <Button color="inherit">Homes</Button>
-          <Button color="inherit">Resources</Button>
-          <Divider orientation="vertical" flexItem sx={{ mx: 2, borderColor: 'rgba(255,255,255,0.2)' }} />
-          <IconButton color="inherit">
-            <SearchIcon />
-          </IconButton>
-          <Button color="inherit" variant="outlined"  sx={{ 
-              ml: 2,
-              color: '#D09C57',
-              borderColor: '#FFFFFF',
-              borderWidth: 1,
-              borderStyle: 'solid',
-              borderRadius: '50px', // Pill shape
-              padding: '5px 15px' // Adjust padding as needed
-            }}>
-            Contact Us
-          </Button>
-        </Box>
-      </Toolbar>
-    </AppBar>
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const toggleDrawer = (open) => () => {
+    setDrawerOpen(open);
+  };
+
+  const menuItems = [
+    { text: 'Travel', path: '/Summer' },
+    { text: 'Adventure', path: '/Summer' },
+    { text: 'Destination', path: '/Destinatinpage' },
+    { text: 'Customize', path: '/customizeTour' },
+    { text: 'Events', path: '/Events' },
+    { text: 'Homes', path: '/Home' },
+    { text: 'Resources', path: '/Summer' }
+  ];
+
+  return (
+    <div className="container">
+      <AppBar position="static" sx={{ backgroundColor: 'transparent', boxShadow: 'none' }}>
+        <Toolbar>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            <Link to="/">
+              <img src="./logo/Group.svg" alt="Logo" />
+            </Link>
+          </Typography>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+            {isMobile ? (
+              <>
+                <IconButton color="inherit" edge="start" aria-label="menu" onClick={toggleDrawer(true)}>
+                  <MenuIcon />
+                </IconButton>
+                <IconButton color="inherit">
+                  <SearchIcon />
+                </IconButton>
+                <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
+                  <Box
+                    sx={{ width: 250 }}
+                    role="presentation"
+                    onClick={toggleDrawer(false)}
+                    onKeyDown={toggleDrawer(false)}
+                  >
+                    <List>
+                      {menuItems.map((item) => (
+                        <ListItem button key={item.text} component={Link} to={item.path}>
+                          <ListItemText primary={item.text} />
+                        </ListItem>
+                      ))}
+                    </List>
+                  </Box>
+                </Drawer>
+              </>
+            ) : (
+              <>
+                {menuItems.map((item) => (
+                  <Button color="inherit" key={item.text} component={Link} to={item.path}>
+                    {item.text}
+                  </Button>
+                ))}
+                <Divider orientation="vertical" flexItem sx={{ mx: 2, borderColor: 'rgba(255,255,255,0.2)' }} />
+                <IconButton color="inherit">
+                  <SearchIcon />
+                </IconButton>
+                <Button
+                  color="inherit"
+                  variant="outlined"
+                  component={Link}
+                  to="/ContactUs"
+                  sx={{
+                    ml: 2,
+                    color: 'white',
+                    backgroundColor: '#D09C57',
+                    borderColor: '#FFFFFF',
+                    borderWidth: 1,
+                    borderStyle: 'solid',
+                    borderRadius: '50px', // Pill shape
+                    padding: '5px 15px', // Adjust padding as needed
+                  }}
+                >
+                  Contact Us
+                </Button>
+              </>
+            )}
+          </Box>
+        </Toolbar>
+      </AppBar>
     </div>
   );
 };

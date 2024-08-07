@@ -1,6 +1,6 @@
 import React from 'react';
 import Slider from 'react-slick';
-import { Card, CardContent, Typography, Box, } from '@mui/material';
+import { Card, CardContent, Typography, Box } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -40,7 +40,7 @@ const guideCards = [
   },
 ];
 
-const TourGuide = (props) => {
+const TourGuide = () => {
   const settings = {
     infinite: true,
     slidesToShow: 1,
@@ -50,17 +50,15 @@ const TourGuide = (props) => {
   };
 
   return (
-    <div className="container">
     <Box sx={{ padding: 2, position: 'relative' }}>
       <Typography sx={{ marginBottom: 2, color: '#000', fontFamily: 'Inter, sans-serif', fontSize: '18px', fontWeight: 600, letterSpacing: '1.8px', textTransform: 'uppercase' }}>
-       
       </Typography>
       <Box display="flex" alignItems="center" justifyContent="center" mb={2} position="relative">
         <Box 
           onClick={() => document.querySelector('.tourguide-slick-prev').click()}
           sx={{
-            position: 'absolute',
-            left: '10px',
+            position: { xs: 'static', md: 'absolute' },
+            left: { md: '10px' },
             zIndex: 1,
             display: 'flex',
             alignItems: 'center',
@@ -71,36 +69,35 @@ const TourGuide = (props) => {
             backgroundColor: 'white',
             borderRadius: '50%',
             border: '1px solid rgba(0, 0, 0, 0.23)',
+            mt: { xs: 2, md: 0 }, // Add margin-top for mobile
+            mx: { xs: 'auto', md: 0 } // Center horizontally for mobile
           }}
         >
           <ArrowBackIcon />
         </Box>
-        <Box sx={{ width: '75%', margin: '0 auto' }}>
+        <Box sx={{ width: { xs: '100%', md: '75%' }, margin: '0 auto' }}>
           <Slider {...settings} className="tourguide-slider">
             {guideCards.map((card, index) => (
-              <Card key={index} sx={{  width: '100%' }}>
+              <Card key={index} sx={{ width: '100%' }}>
                 <Box position="relative" textAlign="center">
-                  <Box sx={{  
-     
-        fontFamily: 'SeoulHangang, sans-serif',
-        fontSize: '150px',
-        fontStyle: 'normal',
-        fontWeight: 400,
-        lineHeight: 'normal', }}>
+                  <Box sx={{
+                    fontFamily: 'SeoulHangang, sans-serif',
+                    fontSize: '150px',
+                    fontStyle: 'normal',
+                    fontWeight: 400,
+                    lineHeight: 'normal',
+                  }}>
                     {card.icon}
                   </Box>
                   <CardContent>
-                    <Typography variant="body2" color="textSecondary"       sx={{
-                        
-        color: '#1C361F',
-        textAlign: 'center',
-        fontFamily: '"American Typewriter", sans-serif',
-        fontSize: '32px',
-        fontStyle: 'normal',
-        fontWeight: 400,
-       
-      }}
->
+                    <Typography variant="body2" color="textSecondary" sx={{
+                      color: '#1C361F',
+                      textAlign: 'center',
+                      fontFamily: '"American Typewriter", sans-serif',
+                      fontSize: '32px',
+                      fontStyle: 'normal',
+                      fontWeight: 400,
+                    }}>
                       {card.description}
                     </Typography>
                     <Typography gutterBottom variant="h6" component="div" sx={{ color: '#333A04', fontFamily: 'Inter', fontSize: '16px', fontWeight: '600', mt: 2 }}>
@@ -118,8 +115,8 @@ const TourGuide = (props) => {
         <Box 
           onClick={() => document.querySelector('.tourguide-slick-next').click()}
           sx={{
-            position: 'absolute',
-            right: '10px',
+            position: { xs: 'static', md: 'absolute' },
+            right: { md: '10px' },
             zIndex: 1,
             display: 'flex',
             alignItems: 'center',
@@ -130,13 +127,14 @@ const TourGuide = (props) => {
             backgroundColor: 'white',
             borderRadius: '50%',
             border: '1px solid rgba(0, 0, 0, 0.23)',
+            mt: { xs: 2, md: 0 }, // Add margin-top for mobile
+            mx: { xs: 'auto', md: 0 } // Center horizontally for mobile
           }}
         >
           <ArrowForwardIcon />
         </Box>
       </Box>
     </Box>
-    </div>
   );
 };
 

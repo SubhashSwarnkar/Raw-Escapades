@@ -20,8 +20,7 @@ const Seasons = () => {
           <Box
             sx={{
               display: 'flex',
-              width: '298px',
-              height:' 120px',
+              
              justifyContent:'space-between',
               alignItems: 'center',
               border: '1px solid #ddd',
@@ -37,7 +36,7 @@ background: 'rgba(255, 255, 255, 0.35)',
             <Typography variant="h6" sx={{ mt: 2 }}>
               Summer
             </Typography>
-            <img src='./logo/summer.svg' alt="Summer" style={{ width: '90.301px',
+            <img src='./Logo/summer.svg' alt="Summer" style={{ width: '90.301px',
 height: '88.097px',
 }} />
           </Box>
@@ -62,7 +61,7 @@ height: '88.097px',
             <Typography variant="h6" sx={{ mt: 2 }}>
               Winter
             </Typography>
-            <img src='./logo/winter.svg' alt="Winter" style={{ width: '90.301px',
+            <img src='./Logo/winter.svg' alt="Winter" style={{ width: '90.301px',
 height: '88.097px',
 }}  />
           </Box>
@@ -87,7 +86,7 @@ height: '88.097px',
             <Typography variant="h6" sx={{ mt: 2 }}>
               Monsoon
             </Typography>
-            <img src='./logo/monsoon.svg' alt="Monsoon" style={{ width: '90.301px',
+            <img src='./Logo/monsoon.svg' alt="Monsoon" style={{ width: '90.301px',
 height: '88.097px',
 }}  />
           </Box>
@@ -112,7 +111,7 @@ height: '88.097px',
             <Typography variant="h6" sx={{ mt: 2 }}>
               All Year
             </Typography>
-            <img src='./logo/allyear.svg' alt="All Year" style={{ width: '90.301px',
+            <img src='./Logo/allyear.svg' alt="All Year" style={{ width: '90.301px',
 height: '88.097px',
 }}  />
           </Box>

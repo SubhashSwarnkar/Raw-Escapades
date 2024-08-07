@@ -1,0 +1,283 @@
+import React from 'react';
+import { Container, Grid, Card, CardContent, CardMedia, Typography, Button, Box, IconButton } from '@mui/material';
+import ShareIcon from '@mui/icons-material/Share';
+import StarIcon from '@mui/icons-material/Star';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import EventIcon from '@mui/icons-material/Event';
+
+const staticCards = [
+  {
+    image: `${process.env.PUBLIC_URL}/images/mega2.png`,
+    title: 'Kaziranga and Meghalaya',
+    days: 5,
+    nights: 4,
+    startDay: '17 Dec',
+    mrp: '$600',
+    discountedPrice: '$500',
+    rating: 4.5,
+  },
+  {
+    image: `${process.env.PUBLIC_URL}/images/mega3.png`,
+    title: 'Kaziranga and Meghalaya',
+    days: 7,
+    nights: 6,
+    startDay: '19 Dec',
+    mrp: '$800',
+    discountedPrice: '$700',
+    rating: 4.7,
+  },
+  {
+    image: `${process.env.PUBLIC_URL}/images/mega4.png`,
+    title: 'Kaziranga and Meghalaya',
+    days: 3,
+    nights: 2,
+    startDay: '21 Dec',
+    mrp: '$400',
+    discountedPrice: '$300',
+    rating: 4.3,
+  },
+  {
+    image: `${process.env.PUBLIC_URL}/images/mega3.png`,
+    title: 'Kaziranga and Meghalaya',
+    days: 8,
+    nights: 9,
+    startDay: '23 Dec',
+    mrp: '$1200',
+    discountedPrice: '$1000',
+    rating: 4.9,
+  },
+  {
+    image: `${process.env.PUBLIC_URL}/images/mega.png`,
+    title: 'Kaziranga and Meghalaya',
+    days: 8,
+    nights: 7,
+    startDay: '25 Dec',
+    mrp: '$900',
+    discountedPrice: '$800',
+    rating: 4.6,
+  }, {
+    image: `${process.env.PUBLIC_URL}/images/mega2.png`,
+    title: 'Kaziranga and Meghalaya',
+    days: 5,
+    nights: 4,
+    startDay: '17 Dec',
+    mrp: '$600',
+    discountedPrice: '$500',
+    rating: 4.5,
+  },
+  {
+    image: `${process.env.PUBLIC_URL}/images/mega3.png`,
+    title: 'Kaziranga and Meghalaya',
+    days: 7,
+    nights: 6,
+    startDay: '19 Dec',
+    mrp: '$800',
+    discountedPrice: '$700',
+    rating: 4.7,
+  },
+  {
+    image: `${process.env.PUBLIC_URL}/images/mega4.png`,
+    title: 'Kaziranga and Meghalaya',
+    days: 3,
+    nights: 2,
+    startDay: '21 Dec',
+    mrp: '$400',
+    discountedPrice: '$300',
+    rating: 4.3,
+  },
+  {
+    image: `${process.env.PUBLIC_URL}/images/mega3.png`,
+    title: 'Kaziranga and Meghalaya',
+    days: 8,
+    nights: 9,
+    startDay: '23 Dec',
+    mrp: '$1200',
+    discountedPrice: '$1000',
+    rating: 4.9,
+  },
+  {
+    image: `${process.env.PUBLIC_URL}/images/mega.png`,
+    title: 'Kaziranga and Meghalaya',
+    days: 8,
+    nights: 7,
+    startDay: '25 Dec',
+    mrp: '$900',
+    discountedPrice: '$800',
+    rating: 4.6,
+  }, {
+    image: `${process.env.PUBLIC_URL}/images/mega2.png`,
+    title: 'Kaziranga and Meghalaya',
+    days: 5,
+    nights: 4,
+    startDay: '17 Dec',
+    mrp: '$600',
+    discountedPrice: '$500',
+    rating: 4.5,
+  },
+  {
+    image: `${process.env.PUBLIC_URL}/images/mega3.png`,
+    title: 'Kaziranga and Meghalaya',
+    days: 7,
+    nights: 6,
+    startDay: '19 Dec',
+    mrp: '$800',
+    discountedPrice: '$700',
+    rating: 4.7,
+  },
+  {
+    image: `${process.env.PUBLIC_URL}/images/mega4.png`,
+    title: 'Kaziranga and Meghalaya',
+    days: 3,
+    nights: 2,
+    startDay: '21 Dec',
+    mrp: '$400',
+    discountedPrice: '$300',
+    rating: 4.3,
+  },
+  {
+    image: `${process.env.PUBLIC_URL}/images/mega3.png`,
+    title: 'Kaziranga and Meghalaya',
+    days: 8,
+    nights: 9,
+    startDay: '23 Dec',
+    mrp: '$1200',
+    discountedPrice: '$1000',
+    rating: 4.9,
+  },
+  {
+    image: `${process.env.PUBLIC_URL}/images/mega.png`,
+    title: 'Kaziranga and Meghalaya',
+    days: 8,
+    nights: 7,
+    startDay: '25 Dec',
+    mrp: '$900',
+    discountedPrice: '$800',
+    rating: 4.6,
+  }, {
+    image: `${process.env.PUBLIC_URL}/images/mega2.png`,
+    title: 'Kaziranga and Meghalaya',
+    days: 5,
+    nights: 4,
+    startDay: '17 Dec',
+    mrp: '$600',
+    discountedPrice: '$500',
+    rating: 4.5,
+  },
+  {
+    image: `${process.env.PUBLIC_URL}/images/mega3.png`,
+    title: 'Kaziranga and Meghalaya',
+    days: 7,
+    nights: 6,
+    startDay: '19 Dec',
+    mrp: '$800',
+    discountedPrice: '$700',
+    rating: 4.7,
+  },
+  {
+    image: `${process.env.PUBLIC_URL}/images/mega4.png`,
+    title: 'Kaziranga and Meghalaya',
+    days: 3,
+    nights: 2,
+    startDay: '21 Dec',
+    mrp: '$400',
+    discountedPrice: '$300',
+    rating: 4.3,
+  },
+  {
+    image: `${process.env.PUBLIC_URL}/images/mega3.png`,
+    title: 'Kaziranga and Meghalaya',
+    days: 8,
+    nights: 9,
+    startDay: '23 Dec',
+    mrp: '$1200',
+    discountedPrice: '$1000',
+    rating: 4.9,
+  },
+  {
+    image: `${process.env.PUBLIC_URL}/images/mega.png`,
+    title: 'Kaziranga and Meghalaya',
+    days: 8,
+    nights: 7,
+    startDay: '25 Dec',
+    mrp: '$900',
+    discountedPrice: '$800',
+    rating: 4.6,
+  },
+  // Add more card objects as needed
+];
+
+const Cards1 = () => {
+  return (
+    <Container>
+      <Grid container spacing={4} justifyContent="center" mt={4}>
+        {staticCards.map((card, index) => (
+          <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
+            <Card sx={{ maxWidth: 345 }}>
+              <Box position="relative">
+                <CardMedia
+                  component="img"
+                  height="200"
+                  image={card.image}
+                  alt={card.title}
+                />
+                <IconButton
+                  aria-label="share"
+                  sx={{ width: '32px', height: '32px', position: 'absolute', top: 8, right: 8, color: 'black', backgroundColor: 'white', opacity: "60%" }}
+                >
+                  <ShareIcon />
+                </IconButton>
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    bottom: 8,
+                    left: 8,
+                    backgroundColor: 'white',
+                    padding: '2px 8px',
+                    borderRadius: '20px',
+                    color: 'black',
+                    opacity: "60%"
+                  }}
+                >
+                  <Typography variant="body2">
+                    {card.rating} <StarIcon sx={{ fontSize: 14, verticalAlign: 'middle' }} />
+                  </Typography>
+                </Box>
+              </Box>
+              <CardContent>
+                <Typography gutterBottom variant="h6" component="div" sx={{ color: '#333A04', fontFamily: 'Inter', fontSize: '16px', fontStyle: 'normal', fontWeight: '600', lineHeight: 'normal' }}>
+                  {card.title}
+                </Typography>
+                <div className='d-flex gap-4 align-items-center '>
+                  <Typography variant="body2" color="textSecondary" sx={{ color: '#333A04', fontFamily: 'Inter', fontSize: '14px', fontStyle: 'normal', fontWeight: 600, display: 'flex', alignItems: 'center' }}>
+                    <AccessTimeIcon sx={{ mr: 1 }} /> {card.days}D - {card.nights}N
+                  </Typography>
+                  <Typography variant="body2" color="textSecondary" sx={{ color: '#333A04', fontFamily: 'Inter', fontSize: '14px', fontStyle: 'normal', fontWeight: 600, display: 'flex', alignItems: 'center' }}>
+                    <EventIcon sx={{ mr: 1 }} /> START {card.startDay}
+                  </Typography>
+                </div>
+                <div className='d-flex gap-4 align-items-center '>
+                  <Typography variant="body2" color="textSecondary" sx={{ color: '#000', textDecoration: 'line-through', fontSize: '16px', marginTop: '8px', lineHeight: '35.874px' }}>
+                    {card.mrp}
+                  </Typography>
+                  <Typography variant="body1" color="textPrimary" sx={{ color: '#000', fontFamily: 'Inter', fontSize: '24px', fontStyle: 'normal', fontWeight: 700, marginTop: '8px', lineHeight: '35.874px' }}>
+                    {card.discountedPrice}
+                  </Typography>
+                </div>
+                <Box display="flex" justifyContent="space-between" mt={2}>
+                  <Button size="small" variant="contained" color="success" sx={{ borderRadius: "40px", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <span style={{ color: '#FFF', fontFamily: 'Inter', fontSize: '16px', fontStyle: 'normal', fontWeight: 700, lineHeight: '35.874px' }}>Get Details</span>
+                  </Button>
+                  <Button size="small" variant="outlined" color="success" sx={{ borderRadius: "40px", display: 'flex',  justifyContent: 'center', alignItems: 'center' }}>
+                    Book Now
+                  </Button>
+                </Box>
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+    </Container>
+  );
+};
+
+export default Cards1;

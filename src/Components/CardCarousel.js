@@ -1,14 +1,11 @@
 import React from 'react';
-import Slider from 'react-slick';
-import { Card, CardContent, CardMedia, Typography, Button, Box, IconButton } from '@mui/material';
+import { Box, Typography, Grid, Container, Card, CardContent, CardMedia, IconButton, Button } from '@mui/material';
 import ShareIcon from '@mui/icons-material/Share';
 import StarIcon from '@mui/icons-material/Star';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import EventIcon from '@mui/icons-material/Event';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import Navbar from './Navbar'; // Adjust the import according to your structure
+import Explore from './Explore'; // Adjust the import according to your structure
 
 const staticCards = [
   {
@@ -63,183 +60,126 @@ const staticCards = [
   },
 ];
 
-const CardCarousel = (props) => {
-  const settings = {
-    infinite: true,
-    slidesToShow: 4.5,
-    slidesToScroll: 1,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
-    responsive: [
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 3.5,
-        },
-      },
-      {
-        breakpoint: 992,
-        settings: {
-          slidesToShow: 2.5,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1.5,
-        },
-      },
-      {
-        breakpoint: 576,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
-  };
-
+const BikeTour = () => {
   return (
-    <Box sx={{ padding: 2 }}>
-      <div className='container'><Typography  sx={{ marginBottom: 2 , color: '#000',
+    <Box>
+      <Box
+        sx={{
+          backgroundImage: `url(${process.env.PUBLIC_URL}/path/to/your/background/image.jpg)`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          color: '#FFF',
+          minHeight: '100vh',
+        }}
+      >
+        <Navbar />
         
-        fontFamily: 'Inter, sans-serif',
-        fontSize: '18px',
-        fontStyle: 'normal',
-        fontWeight: 600,
-        lineHeight: 'normal',
-        letterSpacing: '1.8px',
-        textTransform: 'uppercase'}}>
-        Plan your trip
-      </Typography>
-      <Box display="flex" alignItems="center" justifyContent="space-between" mb={2}>
-        <Typography sx={{color: '#000',
-        textAlign: 'center',
-        fontFamily: '"American Typewriter", sans-serif',
-        fontSize: '62px',
-        fontStyle: 'normal',
-        fontWeight: 400,
-        lineHeight: 'normal'}}>{props.heading}</Typography>
-        <Box>
-      <IconButton 
-        onClick={() => document.querySelector('.slick-prev').click()} 
-        sx={{ 
-          mr: 1, 
-          borderRadius: '50%',
-          border: '1px solid rgba(0, 0, 0, 0.23)'
-        }}
-      >
-        <ArrowBackIcon />
-      </IconButton>
-      <IconButton 
-        onClick={() => document.querySelector('.slick-next').click()} 
-        sx={{ 
-          borderRadius: '50%',
-          border: '1px solid rgba(0, 0, 0, 0.23)'
-        }}
-      >
-        <ArrowForwardIcon />
-      </IconButton>
-    </Box>
-      </Box></div>
-      <Slider {...settings}>
-        {staticCards.map((card, index) => (
-          <Card key={index} sx={{ maxWidth: 295 }}>
-            <Box position="relative">
-              <CardMedia
-                component="img"
-                height="260"
-                image={card.image}
-                alt={card.title}
-              />
-              <IconButton
-                aria-label="share"
-                sx={{ width: '32px', height: '32px', position: 'absolute', top: 8, right: 8, color: 'black', backgroundColor: 'white', opacity: "60%" }}
-              >
-                <ShareIcon />
-              </IconButton>
-              <Box
-                sx={{
-                  position: 'absolute',
-                  bottom: 8,
-                  left: 8,
-                  backgroundColor: 'white',
-                  padding: '2px 8px',
-                  borderRadius: '20px',
-                  color: 'black',
-                  opacity: "60%"
-                }}
-              >
-                <Typography variant="body2">
-                  {card.rating} <StarIcon sx={{ fontSize: 14, verticalAlign: 'middle' }} />
-                </Typography>
-              </Box>
-            </Box>
-            <CardContent>
-              <Typography gutterBottom variant="h6" component="div" sx={{ color: '#333A04', fontfamily: 'Inter', fontsize: '16px', fontstyle: 'normal', fontweight: '600', lineheight: 'normal' }}>
-                {card.title}
-              </Typography>
-              <div className='d-flex gap-4 aling-items-center '>
-              <Typography variant="body2" color="textSecondary" sx={{ color: '#333A04', fontFamily: 'Inter', fontSize: '14px', fontStyle: 'normal', fontWeight: 600, display: 'flex', alignItems: 'center' }}>
-                <AccessTimeIcon sx={{ mr: 1 }} /> {card.days}D - {card.nights}N
-              </Typography>
-              <Typography variant="body2" color="textSecondary" sx={{ color: '#333A04', fontFamily: 'Inter', fontSize: '14px', fontStyle: 'normal', fontWeight: 600, display: 'flex', alignItems: 'center',}}>
-                <EventIcon sx={{ mr: 1 }} /> START {card.startDay}
-              </Typography></div>
-              <div className='d-flex gap-4 aling-items-center '>
-                 <Typography variant="body2" color="textSecondary" sx={{ color: '#000', textDecoration: 'line-through' ,fontSize: '16px', marginTop: '8px', lineHeight: '35.874px',}}>
-                {card.mrp}
-              </Typography>
-              <Typography variant="body1" color="textPrimary" sx={{ color: '#000', fontFamily: 'Inter', fontSize: '24px', fontStyle: 'normal', fontWeight: 700, marginTop: '8px', lineHeight: '35.874px', }}>
-                {card.discountedPrice}</Typography></div>
-              <Box display="flex" justifyContent="space-between" mt={2}>
-                <Button size="small" variant="contained" color="success" sx={{borderRadius:"40px", display: 'flex',
-    width: '124.439px',
-   
-    justifyContent: 'center',
-    alignItems: 'center',
-   
-   }}><span sx={{    color: '#FFF',
-      fontFamily: 'Inter',
-      fontSize: '16px',
-      fontStyle: 'normal',
-      fontWeight: 700,
-      lineHeight: '35.874px', // or '224.214%',
-  }}>Get Details</span></Button>
-                <Button size="small" variant="outlined" color="success" sx={{borderRadius:"40px", display: 'flex',
-    width: '124.439px',
-    justifyContent: 'center',
-    alignItems: 'center',
-   
-   }}>Book Now</Button>
-              </Box>
-            </CardContent>
-          </Card>
-        ))}
-      </Slider>
+        <Container>
+          <Box textAlign="center" mt={8} mb={4}>
+            <Typography
+              sx={{
+                color: '#FFF',
+                fontFamily: '"American Typewriter", sans-serif',
+                fontSize: '62px',
+                fontWeight: 400,
+              }}
+            >
+              Bike Tour
+            </Typography>
+            <Typography
+              sx={{
+                color: '#FFF',
+                textAlign: 'center',
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '16px',
+                fontWeight: 600,
+                lineHeight: '28px',
+                letterSpacing: '0.32px',
+                maxWidth: '800px',
+                margin: '0 auto',
+              }}
+            >
+              You are looking for a cultural city break, a child friendly family holiday, unlimited adventure, a romantic getaway or just to escape and uncover.
+            </Typography>
+          </Box>
+        </Container>
+      </Box>
+
+      <Box mt={8}>
+        <Explore />
+      </Box>
+
+      <Container>
+        <Grid container spacing={4} justifyContent="center" mt={4}>
+          {staticCards.map((card, index) => (
+            <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
+              <Card sx={{ maxWidth: 345 }}>
+                <Box position="relative">
+                  <CardMedia
+                    component="img"
+                    height="200"
+                    image={card.image}
+                    alt={card.title}
+                  />
+                  <IconButton
+                    aria-label="share"
+                    sx={{ width: '32px', height: '32px', position: 'absolute', top: 8, right: 8, color: 'black', backgroundColor: 'white', opacity: "60%" }}
+                  >
+                    <ShareIcon />
+                  </IconButton>
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      bottom: 8,
+                      left: 8,
+                      backgroundColor: 'white',
+                      padding: '2px 8px',
+                      borderRadius: '20px',
+                      color: 'black',
+                      opacity: "60%"
+                    }}
+                  >
+                    <Typography variant="body2">
+                      {card.rating} <StarIcon sx={{ fontSize: 14, verticalAlign: 'middle' }} />
+                    </Typography>
+                  </Box>
+                </Box>
+                <CardContent>
+                  <Typography gutterBottom variant="h6" component="div" sx={{ color: '#333A04', fontFamily: 'Inter', fontSize: '16px', fontStyle: 'normal', fontWeight: '600', lineHeight: 'normal' }}>
+                    {card.title}
+                  </Typography>
+                  <div className='d-flex gap-4 align-items-center '>
+                    <Typography variant="body2" color="textSecondary" sx={{ color: '#333A04', fontFamily: 'Inter', fontSize: '14px', fontStyle: 'normal', fontWeight: 600, display: 'flex', alignItems: 'center' }}>
+                      <AccessTimeIcon sx={{ mr: 1 }} /> {card.days}D - {card.nights}N
+                    </Typography>
+                    <Typography variant="body2" color="textSecondary" sx={{ color: '#333A04', fontFamily: 'Inter', fontSize: '14px', fontStyle: 'normal', fontWeight: 600, display: 'flex', alignItems: 'center' }}>
+                      <EventIcon sx={{ mr: 1 }} /> START {card.startDay}
+                    </Typography>
+                  </div>
+                  <div className='d-flex gap-4 align-items-center '>
+                    <Typography variant="body2" color="textSecondary" sx={{ color: '#000', textDecoration: 'line-through', fontSize: '16px', marginTop: '8px', lineHeight: '35.874px' }}>
+                      {card.mrp}
+                    </Typography>
+                    <Typography variant="body1" color="textPrimary" sx={{ color: '#000', fontFamily: 'Inter', fontSize: '24px', fontStyle: 'normal', fontWeight: 700, marginTop: '8px', lineHeight: '35.874px' }}>
+                      {card.discountedPrice}
+                    </Typography>
+                  </div>
+                  <Box display="flex" justifyContent="space-between" mt={2}>
+                    <Button size="small" variant="contained" color="success" sx={{ borderRadius: "40px", display: 'flex', width: '124.439px', justifyContent: 'center', alignItems: 'center' }}>
+                      <span style={{ color: '#FFF', fontFamily: 'Inter', fontSize: '16px', fontStyle: 'normal', fontWeight: 700, lineHeight: '35.874px' }}>Get Details</span>
+                    </Button>
+                    <Button size="small" variant="outlined" color="success" sx={{ borderRadius: "40px", display: 'flex', width: '124.439px', justifyContent: 'center', alignItems: 'center' }}>
+                      Book Now
+                    </Button>
+                  </Box>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
     </Box>
   );
 };
 
-const NextArrow = (props) => {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: 'none' }}
-      onClick={onClick}
-    />
-  );
-};
-
-const PrevArrow = (props) => {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: 'none' }}
-      onClick={onClick}
-    />
-  );
-};
-
-export default CardCarousel;
+export default BikeTour;

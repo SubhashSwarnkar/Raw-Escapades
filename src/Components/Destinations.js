@@ -3,7 +3,7 @@ import { Box, Typography, Grid } from '@mui/material';
 
 const Destination = () => {
   return (
-    <Box sx={{ padding: 4 }}>
+    <Box sx={{ padding: 4}}>
       <Typography
         variant="h3"
         sx={{
@@ -37,32 +37,32 @@ const Destination = () => {
       <Grid container spacing={2}>
         <Grid item xs={12} md={6}>
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-            <img src='./images/grid1.png' alt="grid1" style={{ width: '100%', marginBottom: '8px' }} />
+            <img src='./Images/grid1.png' alt="grid1" style={{ width: '100%', marginBottom: '8px' }} />
             <Grid container spacing={1}>
               <Grid item xs={12}>
-                <img src='./images/grid21.png' alt="grid21" style={{ width: '100%', marginBottom: '8px' }} />
+                <img src='./Images/grid21.png' alt="grid21" style={{ width: '100%', marginBottom: '8px' }} />
               </Grid>
               <Grid item xs={6}>
-                <img src='./images/grid22.png' alt="grid22" style={{ width: '100%' }} />
+                <img src='./Images/grid22.png' alt="grid22" style={{ width: '100%' }} />
               </Grid>
               <Grid item xs={6}>
-                <img src='./images/grid23.png' alt="grid23" style={{ width: '100%' }} />
+                <img src='./Images/grid23.png' alt="grid23" style={{ width: '100%' }} />
               </Grid>
             </Grid>
           </Box>
         </Grid>
         <Grid item xs={12} md={6}>
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-            <img src='./images/grid21.png' alt="grid21" style={{ width: '100%', marginBottom: '8px' }} />
+            <img src='./Images/grid21.png' alt="grid21" style={{ width: '100%', marginBottom: '8px' }} />
             <Grid container spacing={1}>
               <Grid item xs={6}>
-                <img src='./images/grid22.png' alt="grid22" style={{ width: '100%' }} />
+                <img src='./Images/grid22.png' alt="grid22" style={{ width: '100%' }} />
               </Grid>
               <Grid item xs={6}>
-                <img src='./images/grid23.png' alt="grid23" style={{ width: '100%' }} />
+                <img src='./Images/grid23.png' alt="grid23" style={{ width: '100%' }} />
               </Grid>
             </Grid>
-            <img src='./images/grid1.png' alt="grid1" style={{ width: '100%', marginTop: '8px' }} />
+            <img src='./Images/grid1.png' alt="grid1" style={{ width: '100%', marginTop: '8px' }} />
           </Box>
         </Grid>
       </Grid></div>
