@@ -18,9 +18,8 @@ const AboutUs = () => {
 
   return (
     <Box>
-      <Navbar/>
+      <Navbar />
       <Box
-      
         sx={{
           backgroundImage: `url(${process.env.PUBLIC_URL}/Images/aboutus.png)`,
           backgroundSize: 'cover',
@@ -30,17 +29,25 @@ const AboutUs = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+          textAlign: 'center',
+          px: 2,
+          py: 4,
+          '@media (max-width: 600px)': {
+            minHeight: '60vh',
+          },
         }}
       >
-        <div></div>
         <Container>
           <Box textAlign="center" mt={8} mb={4}>
             <Typography
               sx={{
                 color: '#FFF',
                 fontFamily: '"American Typewriter", sans-serif',
-                fontSize: '62px',
+                fontSize: { xs: '42px', sm: '62px' },
                 fontWeight: 400,
+                '@media (max-width: 600px)': {
+                  fontSize: '36px',
+                },
               }}
             >
               About Us
@@ -50,12 +57,15 @@ const AboutUs = () => {
                 color: '#FFF',
                 textAlign: 'center',
                 fontFamily: 'Inter, sans-serif',
-                fontSize: '16px',
+                fontSize: { xs: '14px', sm: '16px' },
                 fontWeight: 600,
                 lineHeight: '28px',
                 letterSpacing: '0.32px',
                 maxWidth: '800px',
                 margin: '0 auto',
+                '@media (max-width: 600px)': {
+                  fontSize: '12px',
+                },
               }}
             >
               You are looking for a cultural city break, a child-friendly family
@@ -67,13 +77,13 @@ const AboutUs = () => {
       </Box>
 
       {/* Main Content */}
-      <Box sx={{ textAlign: 'center', padding: '2rem' }}>
+      <Box sx={{ textAlign: 'center', padding: '2rem', px: { xs: '1rem', sm: '2rem' } }}>
         <Typography
           variant="h1"
           sx={{
             color: '#000',
             fontFamily: 'American Typewriter',
-            fontSize: '48px',
+            fontSize: { xs: '32px', sm: '48px' },
             fontStyle: 'normal',
             fontWeight: 400,
             lineHeight: 'normal',
@@ -88,13 +98,13 @@ const AboutUs = () => {
             color: '#000',
             textAlign: 'center',
             fontFamily: 'Inter',
-            fontSize: '22px',
+            fontSize: { xs: '16px', sm: '22px' },
             fontStyle: 'normal',
             fontWeight: 500,
             lineHeight: '37px',
             letterSpacing: '0.44px',
             marginBottom: '2rem',
-            margin: '50px 120px'
+            margin: { xs: '30px 20px', sm: '50px 120px' },
           }}
         >
           “When the routine starts to get to you, when you need a break from that
@@ -105,6 +115,7 @@ const AboutUs = () => {
         <Box
           sx={{
             display: 'flex',
+            flexDirection: { xs: 'column', sm: 'row' },
             justifyContent: 'center',
             alignItems: 'flex-start',
             marginBottom: '2rem',
@@ -115,13 +126,13 @@ const AboutUs = () => {
             component="img"
             src="Images/aboutimg.png" // Replace with your image path
             sx={{
-              width: '521px',
-              height: '502px',
-              marginRight: '2rem',
+              width: { xs: '100%', sm: '521px' },
+              height: { xs: 'auto', sm: '502px' },
+              marginRight: { sm: '2rem' },
               marginBottom: '1rem',
             }}
           />
-          <Box sx={{ maxWidth: '765px' }}>
+          <Box sx={{ maxWidth: { xs: '100%', sm: '765px' } }}>
             <TabContext value={tabValue}>
               <Box
                 sx={{
@@ -136,7 +147,7 @@ const AboutUs = () => {
                 <TabList
                   onChange={handleTabChange}
                   aria-label="About Us Tabs"
-                  sx={{ color: 'green',fontWeight:'600',fontSize:'28px' }}
+                  sx={{ color: 'green', fontWeight: '600', fontSize: { xs: '18px', sm: '28px' } }}
                   variant="fullWidth"
                 >
                   <Tab label="Who we are" value="1" />
@@ -149,7 +160,7 @@ const AboutUs = () => {
                   sx={{
                     color: '#22292B',
                     fontFamily: 'Inter',
-                    fontSize: '18px',
+                    fontSize: { xs: '14px', sm: '18px' },
                     fontStyle: 'normal',
                     fontWeight: 500,
                     lineHeight: '30px',
@@ -161,8 +172,8 @@ const AboutUs = () => {
                   aenean eget at. Praesent iaculis pretium nisl pellentesque arcu sit
                   mauris. Laoreet ullamcorper euismod interdum adipiscing et. Et
                   tortor, placerat consequat praesent tincidunt. Venenatis orci a sed
-                  nisi, erat. Sed augue nunc, facilisi duis nisl suspendisse.<br/>
-                  <br/> In
+                  nisi, erat. Sed augue nunc, facilisi duis nisl suspendisse.<br />
+                  <br /> In
                   condimentum convallis nullam vestibulum, turpis. Scelerisque congue
                   id ac sed cras. Quis ullamcorper eget justo, tempus a eget nulla
                   faucibus eu. Ut cras amet, gravida posuere risus. Id quisque
@@ -178,7 +189,7 @@ const AboutUs = () => {
                   sx={{
                     color: '#22292B',
                     fontFamily: 'Inter',
-                    fontSize: '18px',
+                    fontSize: { xs: '14px', sm: '18px' },
                     fontStyle: 'normal',
                     fontWeight: 500,
                     lineHeight: '30px',
@@ -195,7 +206,7 @@ const AboutUs = () => {
                   sx={{
                     color: '#22292B',
                     fontFamily: 'Inter',
-                    fontSize: '18px',
+                    fontSize: { xs: '14px', sm: '18px' },
                     fontStyle: 'normal',
                     fontWeight: 500,
                     lineHeight: '30px',
@@ -234,15 +245,13 @@ const AboutUs = () => {
                 <Tab label="Chapter Five" value="5" />
               </TabList>
             </Box>
-            <TabPanel value="1" sx={{  borderRadius: '12px',
-                background: 'rgba(255, 255, 255, 0.46)',
-                boxShadow: '0px 12px 80px 0px rgba(255, 94, 3, 0.09)',}}>
+            <TabPanel value="1" sx={{ borderRadius: '12px', background: 'rgba(255, 255, 255, 0.46)', boxShadow: '0px 12px 80px 0px rgba(255, 94, 3, 0.09)' }}>
               <Typography
                 variant="h2"
                 sx={{
                   color: '#000',
                   fontFamily: 'American Typewriter',
-                  fontSize: '32px',
+                  fontSize: { xs: '24px', sm: '32px' },
                   fontStyle: 'normal',
                   fontWeight: 400,
                   lineHeight: 'normal',
@@ -257,7 +266,7 @@ const AboutUs = () => {
                   color: '#22292B',
                   textAlign: 'center',
                   fontFamily: 'Inter',
-                  fontSize: '18px',
+                  fontSize: { xs: '14px', sm: '18px' },
                   fontStyle: 'normal',
                   fontWeight: 500,
                   lineHeight: '30px',
@@ -296,14 +305,13 @@ const AboutUs = () => {
                 sx={{
                   color: '#000',
                   fontFamily: 'American Typewriter',
-                  fontSize: '32px',
+                  fontSize: { xs: '24px', sm: '32px' },
                   fontStyle: 'normal',
                   fontWeight: 400,
                   lineHeight: 'normal',
                   textAlign: 'center',
-                  marginBottom: '1rem', borderRadius: '12px',
-                    background: 'rgba(255, 255, 255, 0.46)',
-                    boxShadow: '0px 12px 80px 0px rgba(255, 94, 3, 0.09)',}}
+                  marginBottom: '1rem',
+                }}
               >
                 Chapter Two: Growth and Expansion
               </Typography>
@@ -312,7 +320,7 @@ const AboutUs = () => {
                   color: '#22292B',
                   textAlign: 'center',
                   fontFamily: 'Inter',
-                  fontSize: '18px',
+                  fontSize: { xs: '14px', sm: '18px' },
                   fontStyle: 'normal',
                   fontWeight: 500,
                   lineHeight: '30px',
@@ -330,7 +338,7 @@ const AboutUs = () => {
                 sx={{
                   color: '#000',
                   fontFamily: 'American Typewriter',
-                  fontSize: '32px',
+                  fontSize: { xs: '24px', sm: '32px' },
                   fontStyle: 'normal',
                   fontWeight: 400,
                   lineHeight: 'normal',
@@ -345,7 +353,7 @@ const AboutUs = () => {
                   color: '#22292B',
                   textAlign: 'center',
                   fontFamily: 'Inter',
-                  fontSize: '18px',
+                  fontSize: { xs: '14px', sm: '18px' },
                   fontStyle: 'normal',
                   fontWeight: 500,
                   lineHeight: '30px',
@@ -363,7 +371,7 @@ const AboutUs = () => {
                 sx={{
                   color: '#000',
                   fontFamily: 'American Typewriter',
-                  fontSize: '32px',
+                  fontSize: { xs: '24px', sm: '32px' },
                   fontStyle: 'normal',
                   fontWeight: 400,
                   lineHeight: 'normal',
@@ -378,7 +386,7 @@ const AboutUs = () => {
                   color: '#22292B',
                   textAlign: 'center',
                   fontFamily: 'Inter',
-                  fontSize: '18px',
+                  fontSize: { xs: '14px', sm: '18px' },
                   fontStyle: 'normal',
                   fontWeight: 500,
                   lineHeight: '30px',
@@ -395,7 +403,7 @@ const AboutUs = () => {
                 sx={{
                   color: '#000',
                   fontFamily: 'American Typewriter',
-                  fontSize: '32px',
+                  fontSize: { xs: '24px', sm: '32px' },
                   fontStyle: 'normal',
                   fontWeight: 400,
                   lineHeight: 'normal',
@@ -410,7 +418,7 @@ const AboutUs = () => {
                   color: '#22292B',
                   textAlign: 'center',
                   fontFamily: 'Inter',
-                  fontSize: '18px',
+                  fontSize: { xs: '14px', sm: '18px' },
                   fontStyle: 'normal',
                   fontWeight: 500,
                   lineHeight: '30px',
@@ -425,7 +433,7 @@ const AboutUs = () => {
           </TabContext>
         </Container>
       </Box>
-      <Footer/>
+      <Footer />
     </Box>
   );
 };

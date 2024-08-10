@@ -72,7 +72,7 @@ const Navbar = () => {
                   color="inherit"
                   variant="outlined"
                   component={Link}
-                  to="/ContactUs"
+                  to="/ContactUs" // Ensure this path matches the route for the Contact Us page
                   sx={{
                     ml: 2,
                     color: 'white',

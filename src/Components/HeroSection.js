@@ -9,7 +9,7 @@ const HeroSection = () => {
   
 
   return (
-    <div className='container'>
+    <div className=''>
       <Box
         sx={{
           position: 'relative',
